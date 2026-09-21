@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Warung Mie Ayam & Bakso Bu Leni - Cek Stok, Pesan Online</title>
+  <meta name="description" content="Lihat stok mie ayam dan bakso sebelum datang, lalu pesan dan bayar online.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="topbar">
+    <a href="#atas" class="brand">Warung Mie Ayam &amp; Bakso Bu Leni</a>
+    <nav aria-label="Navigasi utama">
+      <a href="#menu">Menu & stok</a>
+      <a href="#cara">Cara pesan</a>
+      <a href="#kontak">Lokasi</a>
+    </nav>
+  </header>
+
+  <main id="atas">
+
+    <!-- HERO: papan stok -->
+    <section class="hero">
+      <div class="hero-text">
+        <h1>Mie ayam &amp; bakso.<br>Stoknya bisa dicek dulu.</h1>
+        <p>Tidak perlu lagi datang lalu ketemu menu yang habis. Lihat yang masih ada, pesan dari rumah, bayar online atau tunai di warung.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#menu">Lihat menu &amp; pesan</a>
+          <a class="btn btn-ghost" href="#cara">Cara pesan</a>
+        </div>
+      </div>
+
+      <aside class="board" aria-label="Papan stok hari ini">
+        <div class="board-head">
+          <h2>Stok hari ini</h2>
+          <span class="board-time" id="boardTime"></span>
+        </div>
+        <ul id="boardList" class="board-list"></ul>
+        <p class="board-note">Diperbarui oleh penjual. Angka berkurang saat ada pesanan.</p>
+      </aside>
+    </section>
+
+    <!-- MENU + KERANJANG -->
+    <section class="section" id="menu">
+      <div class="section-head">
+        <h2>Menu &amp; ketersediaan</h2>
+        <p>Menu yang habis tidak bisa dipesan. Harga di bawah adalah contoh, sesuaikan di file <code>script.js</code>.</p>
+      </div>
+
+      <div class="order-layout">
+        <div id="menuGrid" class="menu-grid"></div>
+
+        <aside class="cart" aria-label="Keranjang pesanan">
+          <h3>Pesanan kamu</h3>
+          <ul id="cartList" class="cart-list"></ul>
+          <p id="cartEmpty" class="cart-empty">Belum ada pesanan. Pilih menu di samping.</p>
+          <div class="cart-total">
+            <span>Total</span>
+            <strong id="cartTotal">Rp0</strong>
+          </div>
+
+          <div class="field">
+            <label for="nama">Nama</label>
+            <input id="nama" type="text" placeholder="Nama pemesan" autocomplete="name">
+          </div>
+
+          <fieldset class="field">
+            <legend>Ambil pesanan</legend>
+            <label class="opt"><input type="radio" name="metode" value="Ambil di warung" checked> Ambil di warung</label>
+            <label class="opt"><input type="radio" name="metode" value="Antar"> Diantar</label>
+          </fieldset>
+
+          <div class="field" id="alamatWrap" hidden>
+            <label for="alamat">Alamat antar</label>
+            <input id="alamat" type="text" placeholder="Alamat lengkap">
+          </div>
+
+          <fieldset class="field">
+            <legend>Pembayaran</legend>
+            <label class="opt"><input type="radio" name="bayar" value="Tunai di warung" checked> Tunai di warung</label>
+            <label class="opt"><input type="radio" name="bayar" value="QRIS"> QRIS</label>
+            <label class="opt"><input type="radio" name="bayar" value="Transfer bank"> Transfer bank</label>
+          </fieldset>
+
+          <p id="payInfo" class="pay-info" hidden></p>
+
+          <button id="checkout" class="btn btn-primary btn-block" type="button" disabled>Kirim pesanan lewat WhatsApp</button>
+          <p id="formMsg" class="form-msg" role="alert"></p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- CARA PESAN -->
+    <section class="section section-tint" id="cara">
+      <div class="section-head">
+        <h2>Pesan dalam tiga langkah</h2>
+      </div>
+      <ol class="steps">
+        <li>
+          <h3>Cek stok</h3>
+          <p>Lihat menu yang masih tersedia sebelum berangkat.</p>
+        </li>
+        <li>
+          <h3>Pilih dan bayar</h3>
+          <p>Masukkan menu ke pesanan, pilih tunai, QRIS, atau transfer.</p>
+        </li>
+        <li>
+          <h3>Ambil atau tunggu diantar</h3>
+          <p>Pesanan disiapkan warung. Tinggal datang, atau tunggu di rumah.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- KENAPA -->
+    <section class="section">
+      <div class="section-head">
+        <h2>Kenapa pesan lewat sini</h2>
+      </div>
+      <div class="why">
+        <article>
+          <h3>Untuk pelanggan</h3>
+          <p>Tahu menu apa yang masih ada, tidak perlu antre lama, dan bisa bayar dengan cara yang paling nyaman.</p>
+        </article>
+        <article>
+          <h3>Untuk warung</h3>
+          <p>Stok lebih tertata, pesanan masuk tercatat rapi, dan pelanggan datang dengan pesanan yang jelas.</p>
+        </article>
+        <article>
+          <h3>Tetap rasa yang sama</h3>
+          <p>Mie ayam dan bakso yang sudah dikenal pelanggan, dengan harga yang tetap terjangkau.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- KONTAK -->
+    <section class="section section-dark" id="kontak">
+      <div class="contact">
+        <div>
+          <h2>Datang langsung juga boleh</h2>
+          <p>Jl. Pandak colo<br>Buka setiap hari, 09.00 - 20.00</p>
+        </div>
+        <div class="contact-actions">
+          <a class="btn btn-primary" id="waLink" href="#">Chat WhatsApp</a>
+          <a class="btn btn-ghost-light" href="#" id="igLink">Instagram warung</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 Warung Mie Ayam &amp; Bakso Bu Leni</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
